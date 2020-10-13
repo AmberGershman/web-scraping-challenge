@@ -8,20 +8,30 @@
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="static/style.css">
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    .jpl_image {
+      float: left;
+    }
+    .table {
+      float: right;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="text-center">
-      <div class="jumbotron">
-        <h1>Mission to Mars</h1>
-        <p>
-          <a class="btn btn-primary btn-lg" href="/scrape" role="button">What's New On Mars?</a>
-        </p>
+    <div class="jumbotron">
+      <h1>Mission to Mars</h1>
+      <p>
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">What's New On Mars?</a>
+      </p>
 
-      </div>
     </div>
+
     <div class="container">
       <h1>Latest Mars News</h1>
       <h3>{{mars_data.nasa_headline}}</h3>
@@ -30,26 +40,35 @@
     <br>
     <div class="container">
       <h3>Featured Mars Images</h3>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src={{mars_data.jpl_image}} alt="Mars Image" class="img-thumbnail">
-          </div>
-          <div class="caption">
-            <h3>Hemisphere's on Mars</h3>
-            <p>...</p>
-          </div>
-        </div>
-
+      <div class="thumbnail" , id="jpl_image">
+        <img src={{mars_data.jpl_image}} alt="Mars Image" class="img-thumbnail">
       </div>
+      <div class="caption">
+      </div>
+    <div class="container", id="table">
+      <table>
+        <img src={{mars_data.table_data}}>
+      </table>
+    </div>
+
+      <h3>Hemisphere's on Mars</h3>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src={{mars_data.jpl_iamge}} alt="Mars Image" class="img-thumbnail">
+        </div>
+        <p>...</p>
+      </div>
+    </div>
+
+  </div>
 
 
-      <script rsc="https://code.jquery.com/jquery-3.2.1.js"
-        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script rsc="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
 
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-        </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
 
 </body>
 

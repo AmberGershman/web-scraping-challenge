@@ -15,27 +15,31 @@ def scrape():
 
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-
-    mars_news_title = soup.find('div', class_='image_and_description_container')
-    nasa_headline = mars_news_title
-    nasa_p = mars_news_title.find('div', class_='article_teaser_body')
+    
+    # mars_news_title = soup.find_by_tag('div', class_='image_and_description_container')
+    news_title = browser.find_by_css('.grid_gallery.list_view .content_title a').text
+    nasa_headline = news_title
+    print(nasa_headline)
+    nasa_p = browser.find_by_css('.grid_gallery.list_view .article_teaser_body').text
+    print(nasa_p)
 
     # Scraping JPL Mars image
 
     jpl_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(jpl_url)
-    browser.click_link_by_partial_text('FULL IMAGE')
+    browser.find_by_id('full_image').click()
+    browser.click_link_by_partial_text('more info')
     jpl_html = browser.html
     soup = BeautifulSoup(jpl_html, 'html.parser')
-    image_deets = soup.find_all('img', class_="fancybox-image")
-    image_deets = image_deets[0]
-    featured_image_url = "https://www.jpl.nasa.gov/" + image_deets["src"]
-
+    image_deets = browser.find_by_css('img.main_image')['src']
+    print(image_deets)
+    featured_image_url = image_deets
 # Scraping information about Mars as a table
 
 
     mars_facts_table = pd.read_html('https://space-facts.com/mars/')
     mars_facts_table = mars_facts_table[2].to_html()
+    print(mars_facts_table)
 
 # Scraping images and names of Mars' hemispheres
 
