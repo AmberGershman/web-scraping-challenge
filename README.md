@@ -1,4 +1,4 @@
-Learning About Mars! 
+<h2><strong>Learning About Mars!</strong></h2>
 
 This webscraping challenged proved particularly tricky, as I was out for most of the Bootstrap lessons. However, with determination and grit and A LOT of help from Sarah and Lisa, I was able to finish. 
 
