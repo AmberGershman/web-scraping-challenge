@@ -2,8 +2,6 @@
 
 This webscraping challenged proved particularly tricky, as I was out for most of the Bootstrap lessons. However, with determination and grit and A LOT of help from Sarah and Lisa, I was able to finish. 
 
-<img src="C:/Users/Amber/Data_Analytics/DA Homework/None_Type.png" alt = "What does None Type even mean??!?!?">
-
 I started by setting up the initial web scrape using my very best friend, Python via Pandas via Juypter Notebook, Splinter, and BeautifulSoup. This was a lovely way to parse through the html code of the browsers, and pull the appropriate divs. I won't lie - accessing the JPL image was painstaking but Lisa clocked me to the "grid" div to pull from. 
 
 I was able to pull information from all four websites, scraping updated news information from NASA, images from the Jet Propulsion Lab, facts data from Space Facts, and Mars' Hemisphere images from the US Geological Services. I tried to set up a for-loop to cycle through the Hemispheres' to scrape the relevant data, but my chromedriver would crash on each attempt so was forced to visit individual pages and update hemisphere-specific dictionaries with the image url and the image title. My final test to connect to MongoDB and successfully compile the Mars data into a collection. 
@@ -12,4 +10,4 @@ Once the code was successful in Jupyter Notebook, I began creating the app.py an
 
 The index.html file was a bit more tricky - again because I hadn't yet caught up on missed class content. I was able to use examples from former cohorts to understand the structure and flow of the html file, but reviewed the HTML/CSS & Bootstrap videos to firmly grasp the concepts. The elements from the MongoDB collection were easy enough to incorporate, but formatting those elements were slightly more difficult. For example, I had exported the Mars facts table from the Space Facts website directly as an html table, but failed to format it before exporting. There were no column headers and the index was unnecessary. It was incredibly helpful to be able to go back to the Jupyter Notebook and run tests to ensure that the elements I would be scraping were in the appropriate format. I wasn't able to link the CSS stylesheet to the html file despite the file being linked in the header (and opening from there to the correct stylesheet). Sarah helped in sorting out the for loop - for which I had the correct elements but failed to call the right key/value syntax. In the end, I was able to successfully render the entire scrape and by pasting the styling code into the Inspector, I was extremely pleased with how much I learned, my patience (and everyone elses') and the final product. I REALLY enjoyed styling the page - this was an infurtiating but incredibly satisfying project. 
 
-<img src="Mars Website(head).png" alt = "Do you SEE how pretty this is?">
+<img src="https://github.com/AmberGershman/web-scraping-challenge/blob/master/Mars%20Website%20(head).PNG" alt = "Do you SEE how pretty this is?">
