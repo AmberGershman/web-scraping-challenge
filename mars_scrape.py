@@ -7,7 +7,8 @@ import pymongo
 
 def scrape():
 
-    browser = Browser("chrome", executable_path="C:/Users/Amber/Data_Analytics/DA Homework/web-scraping-challenge/chromedriver.exe", headless=True)
+    browser = Browser(
+        "chrome", executable_path="C:/Users/Amber/Data_Analytics/DA Homework/web-scraping-challenge/chromedriver.exe", headless=True)
     # Scraping latest news and teaser paragraph about Mars from NASA
 
     nasa_url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
@@ -15,12 +16,14 @@ def scrape():
 
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-    
+
     # mars_news_title = soup.find_by_tag('div', class_='image_and_description_container')
-    news_title = browser.find_by_css('.grid_gallery.list_view .content_title a').text
+    news_title = browser.find_by_css(
+        '.grid_gallery.list_view .content_title a').text
     nasa_headline = news_title
     # print(nasa_headline)
-    nasa_p = browser.find_by_css('.grid_gallery.list_view .article_teaser_body').text
+    nasa_p = browser.find_by_css(
+        '.grid_gallery.list_view .article_teaser_body').text
     # print(nasa_p)
 
     # Scraping JPL Mars image
@@ -34,14 +37,17 @@ def scrape():
     image_deets = browser.find_by_css('img.main_image')['src']
     # print(image_deets)
     featured_image_url = image_deets
-# Scraping information about Mars as a table
+    # Scraping information about Mars as a table
+
+    mars_facts_table = pd.read_html("https://space-facts.com/mars/")
+    mars_facts_table = mars_facts_table[2]
+    mars_facts_table = mars_facts_table.rename(columns={0: "Category", 1: "Mars Details"})
+    mars_facts_table = mars_facts_table.set_index("Category")
+    mars_facts_table = mars_facts_table.to_html()
 
 
-    mars_facts_table = pd.read_html('https://space-facts.com/mars/')
-    mars_facts_table = mars_facts_table[2].to_html()
+    # Scraping images and names of Mars' hemispheres
 
-
-# Scraping images and names of Mars' hemispheres
 
     cerberus = {}
     schiaparelli = {}
@@ -57,8 +63,8 @@ def scrape():
     cerberus.update({'title': title_class.h2.text})
     cerberus_image = soup.find_all('li')
     for i in cerberus_image:
-        if 'full' in i.a['href']:
-            cerberus.update({'img_url': i.a['href']})
+            if 'full' in i.a['href']:
+                cerberus.update({'img_url': i.a['href']})
 
     hemis_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(hemis_url)
@@ -106,4 +112,3 @@ def scrape():
                    }
 
     return mars_scrape
-
