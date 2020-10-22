@@ -1,0 +1,43 @@
+body {
+  background-color: cadetblue;
+}
+
+img {
+margin-top: 20px;
+width: 100%;
+height: auto;
+}
+
+
+table {
+margin-top: 10px;
+width: 100%;
+height: auto;
+}
+
+table th {
+padding: 10px;
+font-size: 20px;
+padding-left:7px;
+}
+table td {
+padding: 7px;
+font: bold;
+}
+table tr:nth-child(odd) {
+background-color: #f2f2f2;
+}
+
+.card {
+  padding: 20px;
+  border-style: groove;
+  background-color: #f2f2f2;
+  border-color: lightgray;   
+  border-width: thin; 
+  margin-bottom: 15px;
+}
+.card-text {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}

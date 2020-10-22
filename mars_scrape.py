@@ -42,8 +42,8 @@ def scrape():
     mars_facts_table = pd.read_html("https://space-facts.com/mars/")
     mars_facts_table = mars_facts_table[2]
     mars_facts_table = mars_facts_table.rename(columns={0: "Category", 1: "Mars Details"})
-    mars_facts_table = mars_facts_table.set_index("Category")
-    mars_facts_table = mars_facts_table.to_html()
+    # mars_facts_table = mars_facts_table.set_index("Category")
+    mars_facts_table = mars_facts_table.to_html(index=False)
 
 
     # Scraping images and names of Mars' hemispheres
