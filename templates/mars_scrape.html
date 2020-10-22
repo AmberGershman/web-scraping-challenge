@@ -27,17 +27,17 @@
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-3">
         <h2>Featured Mars Image</h2>
-        <img src="{{mars_data.jpl_image}}" alt="JPL Image" class="img_thumbnail" width=400 height=400>
+        <img src="{{mars_data.jpl_image}}" alt="JPL Image" class="img_thumbnail">
       </div>
+  
 
 
-
-      <div class="col-md-6">
+      <div class="col-md-3">
         <h2>Mars Facts!</h2>
         <table>
-          {{mars_data.table_data | safe}}
+          {{mars_data.table_data}}
         </table>
       </div>
     </div>
@@ -45,20 +45,16 @@
   <br>
 
   <div class="container">
-    <div class="card-deck">
-      <h2>Hemispheres on Mars</h2>
-      <div class="row">
-        {% for hemisphere in mars_data.hemispheres %}
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body text-dark">
-              <img class="card-img-top" src={{hemisphere.img_url}} alt="card-img-top"" width = " 400" height="400">
-              <h4 class=" card-text"> <strong>{{hemisphere.title}}</strong></h4>
-            </div>
-          </div>
+    <h2>Hemispheres on Mars</h2>
+    <div class="row">
+      {% for key, value in mars_data.hemispheres %}
+      <div class="col-md-3">
+        <div class="card" style="width: 20rem;">
+          <img src={{value}} alt={{key}} class="img">
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
+
     </div>
   </div>
 
