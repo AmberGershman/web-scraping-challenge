@@ -1,6 +1,8 @@
 <h2><strong>Learning About Mars!</strong></h2>
 
-This webscraping challenged proved particularly tricky, as I was out for most of the Bootstrap lessons. However, with determination and grit and A LOT of help from Sarah and Lisa, I was able to finish. 
+This webscraping challenged proved particularly tricky, as I was out for most of the Bootstrap lessons. If you'd like more information about my hudband's accident and susbsequent hospitalization, please click here. 
+
+However, with determination and grit and A LOT of help from Sarah and Lisa, I was able to finish. 
 
 I started by setting up the initial web scrape using my very best friend, Python via Pandas via Juypter Notebook, Splinter, and BeautifulSoup. This was a lovely way to parse through the html code of the browsers, and pull the appropriate divs. I won't lie - accessing the JPL image was painstaking but Lisa clocked me to the "grid" div to pull from. 
 
